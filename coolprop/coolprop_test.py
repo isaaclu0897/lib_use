@@ -50,20 +50,16 @@ plot.show()
 
 
 #%%
-
-
-import coolprop
+import CoolProp
 from CoolProp.Plots import PropertyPlot
 ts_plot = PropertyPlot('R290', 'Ts', tp_limits='ORC')
 ts_plot.calc_isolines(CoolProp.iQ, num=6)
 ts_plot.show()
 
 
-#%%
-
-
+#%%problem
 import CoolProp
-from coolprop.Plots import propertyplot
+from CoolProp.Plots import PropertyPlot
 plot = PropertyPlot('HEOS::R134a', 'PH', unit_system='EUR', tp_limits='ACHP')
 plot.calc_isolines(CoolProp.iQ, num=11)
 plot.calc_isolines(CoolProp.iT, num=25)
@@ -72,12 +68,10 @@ plot.show()
 
 
 #%%
-
-
 import CoolProp
 from CoolProp.Plots import PropertyPlot
 plot = PropertyPlot('HEOS::R245fa', 'TS', unit_system='EUR', tp_limits='ORC')
-plot.calc_isolines(coolprop.iQ, num=11)
+plot.calc_isolines(CoolProp.iQ, num=11)
 plot.calc_isolines(CoolProp.iP, iso_range=[1,50], num=10, rounding=True)
 plot.draw()
 plot.isolines.clear()
