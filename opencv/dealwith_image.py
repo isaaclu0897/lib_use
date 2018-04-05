@@ -36,3 +36,30 @@ ret,thresh = cv2.threshold(imgray,235,255,0)
 binary,contours,hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 cv2.drawContours(im,contours,-1,(255, 0, 0), 2)
 cv2.imshow('im', im)
+#%% kinds of thresh compare
+''' 何為閾值？
+所謂的二值化是一種將影像中像素進行區分並放大的手段，
+通常它會分成我們感興趣的部分作為前景，以及不感興趣的部分作為背景，
+我們會以某個強度當作分割的標準，而這個強度便稱作閾值(threshold)，
+所以通常強度超過閾值的像素當作前景，反之則為背景。
+'''
+import cv2
+from matplotlib import pyplot as plt
+
+im = cv2.imread('raspberry.jpg')  
+img = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
+ret,thresh1 = cv2.threshold(img,127,255,cv2.THRESH_BINARY)
+ret,thresh2 = cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)
+ret,thresh3 = cv2.threshold(img,127,255,cv2.THRESH_TRUNC)
+ret,thresh4 = cv2.threshold(img,127,255,cv2.THRESH_TOZERO)
+ret,thresh5 = cv2.threshold(img,127,255,cv2.THRESH_TOZERO_INV)
+
+titles = ['Original','BINARY','BINARY_INV','TRUNC','TOZERO','TOZERO_INV']
+images = [img, thresh1, thresh2, thresh3, thresh4, thresh5]
+
+for i in range(6):
+    plt.subplot(2,3,i+1),plt.imshow(images[i], 'gray')
+    plt.title(titles[i])
+    plt.xticks([]),plt.yticks([])
+
+plt.show()
