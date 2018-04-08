@@ -63,3 +63,55 @@ for i in range(6):
     plt.xticks([]),plt.yticks([])
 
 plt.show()
+
+#%% deal with GaussianBlur
+import cv2
+im = cv2.imread('raspberry.jpg')
+imgray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
+ret,thresh = cv2.threshold(imgray,240,255,0)
+GaussianBlur = cv2.GaussianBlur(thresh, (5, 5), 0)    
+binary,contours,hierarchy = cv2.findContours(GaussianBlur, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+cv2.drawContours(im,contours,-1,(255, 0, 0), 2)
+cv2.imshow('im', im)
+
+#%% deal with GaussianBlur
+import cv2
+from matplotlib import pyplot as plt
+
+im = cv2.imread('raspberry.jpg')
+
+imgray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
+ret,thresh = cv2.threshold(imgray,240,255,0)
+GaussianBlur = cv2.GaussianBlur(thresh, (5, 5), 0)
+binary,contours,hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+titles = ['thresh','GaussianBlur']
+images = [thresh, GaussianBlur]
+
+im = [im, im.copy()]
+for i in range(2):
+    plt.subplot(1,2,i+1),plt.imshow(images[i], 'gray')
+    plt.title(titles[i])
+    plt.xticks([]),plt.yticks([])
+plt.show()
+    
+#for i in range(2):
+#    binary,contours,hierarchy = cv2.findContours(images[i], cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+#    cv2.drawContours(im[i],contours,-1,(255, 0, 0), 2)
+#    plt.subplot(1,2,i+1),plt.imshow(im[i], 'gray')
+#    plt.title(titles[i])
+#    plt.xticks([]),plt.yticks([])
+#plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
