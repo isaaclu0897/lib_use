@@ -15,6 +15,16 @@ fig = plt.figure()
 #ax = fig.add_subplot(111, projection='3d') 
 ax = Axes3D(fig)
 
+# set boundry 
+#ax.set_xlim(-3, 3) 
+#ax.set_ylim(-1, 11) 
+#ax.set_zlim(-50, 50) 
+ 
+# set label 
+ax.set_xlabel('x axis') 
+ax.set_ylabel('y axis') 
+ax.set_zlabel('z axis') 
+
 # set X1, X2 array of value
 X1 = np.arange(-10, 10, 1)
 X2 = np.arange(-10, 10, 1)
