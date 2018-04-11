@@ -37,6 +37,11 @@ ax.plot_surface(X1, X2, F, rstride=1, cstride=1, cmap=plt.get_cmap('jet'))
 但我個人偏好 jet，因為它明度比較高 
 色表可以參考[matplotlib官方文檔](https://matplotlib.org/users/colormaps.html) 
 ''' 
+# mapping 3D curve to X, Y, Z plane
+#ax.contourf(X1, X2, F, zdir='z', offset=-50, cmap=plt.get_cmap('jet')) 
+#ax.contourf(X1, X2, F, zdir='y', offset=11, cmap=plt.get_cmap('rainbow')) 
+#ax.contourf(X1, X2, F, zdir='x', offset=-3, cmap=plt.get_cmap('rainbow')) 
+
 plt.show()
 
 
