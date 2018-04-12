@@ -28,8 +28,17 @@ ax.set_zlabel('z axis')
 # set X1, X2 array of value
 X1 = np.arange(-10, 10, 1)
 X2 = np.arange(-10, 10, 1)
-X1, X2 = np.meshgrid(X1, X2)    # X1, X2 mesh to grid  
-F = 2*X1**2 + X2**2 + X1*X2 + 4*X1 + X2
+X1, X2 = np.meshgrid(X1, X2)    # 1D X1, X2 mesh to 2D grid
+
+# example for notebook 
+eq1 = 2*X1**2 + X2**2 + X1*X2 + 4*X1 + X2
+eq2 = 2*X1**2 + X2**2
+eq3 = X1 * X2
+eq4 = X1**2 + 2*X2**2
+eq5 = X1**2/2 + X2**2 - 2*X1*X2 - 2*X1 + X2
+eq6 = X1**2 + X2**2 + X1*X2 + 6*X1 - X2
+
+F = eq1
 
 ax.plot_surface(X1, X2, F, rstride=1, cstride=1, cmap=plt.get_cmap('jet'))
 ''' colormap色表 
