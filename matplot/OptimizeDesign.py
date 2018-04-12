@@ -40,6 +40,14 @@ eq6 = X1**2 + X2**2 + X1*X2 + 6*X1 - X2
 
 F = eq1
 
+# subject for example(still have bug)
+#xx, yy = np.meshgrid(range(-10, 10), range(-10, 10))
+#con1 = 4*xx - yy - 1
+#con2 = 4*xx**2 + yy**2 - 1
+#con3 = xx + 3
+#zz = con3
+
+#ax.plot_surface(zz, yy, xx, alpha=0.2)
 ax.plot_surface(X1, X2, F, rstride=1, cstride=1, cmap=plt.get_cmap('jet'))
 ''' colormap色表 
 網上很多人愛用 rainbow 
