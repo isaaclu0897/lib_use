@@ -61,6 +61,15 @@ ax.plot_surface(X1, X2, F, rstride=1, cstride=1, cmap=plt.get_cmap('jet'))
 
 plt.show()
 
+# if you want to find the minimize.
+# first, you need to differental the function.
+from sympy import Symbol, solve, diff, cos
+t2 = Symbol('t2')
+func = cos(2*np.pi*t2)
+Dfunc = diff(func, t2)
+sol = solve(Dfunc, t2)
+print(sol)
+# [sympy 教學](https://blog.gtwang.org/useful-tools/sympy-python-library-for-symbolic-mathematics/3/)
 
 # =============================================================================
 # reference
