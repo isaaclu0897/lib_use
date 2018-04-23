@@ -28,9 +28,26 @@ ax.set_zlabel('z axis')
 # set X1, X2 array of value
 X1 = np.arange(-10, 10, 1)
 X2 = np.arange(-10, 10, 1)
-X1, X2 = np.meshgrid(X1, X2)    # X1, X2 mesh to grid  
-F = 2*X1**2 + X2**2 + X1*X2 + 4*X1 + X2
+X1, X2 = np.meshgrid(X1, X2)    # 1D X1, X2 mesh to 2D grid
 
+# example for notebook 
+eq1 = 2*X1**2 + X2**2 + X1*X2 + 4*X1 + X2
+eq2 = 2*X1**2 + X2**2
+eq3 = X1 * X2
+eq4 = X1**2 + 2*X2**2
+eq5 = X1**2/2 + X2**2 - 2*X1*X2 - 2*X1 + X2
+eq6 = X1**2 + X2**2 + X1*X2 + 6*X1 - X2
+
+F = eq1
+
+# subject for example(still have bug)
+#xx, yy = np.meshgrid(range(-10, 10), range(-10, 10))
+#con1 = 4*xx - yy - 1
+#con2 = 4*xx**2 + yy**2 - 1
+#con3 = xx + 3
+#zz = con3
+
+#ax.plot_surface(zz, yy, xx, alpha=0.2)
 ax.plot_surface(X1, X2, F, rstride=1, cstride=1, cmap=plt.get_cmap('jet'))
 ''' colormap色表 
 網上很多人愛用 rainbow 
@@ -45,3 +62,36 @@ ax.plot_surface(X1, X2, F, rstride=1, cstride=1, cmap=plt.get_cmap('jet'))
 plt.show()
 
 
+# =============================================================================
+# reference
+# =============================================================================
+#import numpy as np
+#import matplotlib.pyplot as plt
+#from mpl_toolkits.mplot3d import Axes3D
+#
+#point  = np.array([1, 2, 3])
+#normal = np.array([1, 1, 2])
+#
+#point2 = np.array([10, 50, 50])
+#
+## a plane is a*x+b*y+c*z+d=0
+## [a,b,c] is the normal. Thus, we have to calculate
+## d and we're set
+#d = -point.dot(normal)
+#
+## create x,y
+#xx, yy = np.meshgrid(range(10), range(10))
+#
+## calculate corresponding z
+#z = (-normal[0] * xx - normal[1] * yy - d) * 1. /normal[2]
+#
+## plot the surface
+#fig = plt.figure()
+#ax = Axes3D(fig)
+#ax.plot_surface(xx, yy, z, alpha=0.2)
+#
+#
+##and i would like to plot this point : 
+#ax.scatter(point2[0] , point2[1] , point2[2],  color='green')
+#
+#plt.show()
